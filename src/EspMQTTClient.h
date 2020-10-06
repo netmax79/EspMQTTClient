@@ -10,6 +10,7 @@
   #include <ESP8266WebServer.h>
   #include <ESP8266mDNS.h>
   #include <ESP8266HTTPUpdateServer.h>
+  #include <WiFiClientSecureBearSSL.h>
 
   #define WebServer ESP8266WebServer
   #define ESPmDNS ESP8266mDNS
@@ -17,7 +18,7 @@
 
 #else // for ESP32
 
-  #include <WiFiClient.h>
+  #include <WiFiClientSecure.h>
   #include <WebServer.h>
   #include <ESPmDNS.h>
   #include "ESP32HTTPUpdateServer.h"
@@ -44,7 +45,7 @@ private:
   unsigned int _wifiReconnectionAttemptDelay;
   const char* _wifiSsid;
   const char* _wifiPassword;
-  WiFiClient _wifiClient;
+  WiFiClientSecure _wifiClient;
 
   // MQTT related
   bool _mqttConnected;

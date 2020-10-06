@@ -57,6 +57,10 @@ EspMQTTClient::EspMQTTClient(
   _lastWifiConnectiomAttemptMillis = 0;
   _wifiReconnectionAttemptDelay = 60 * 1000;
 
+  #ifdef ESP8266
+  _wifiClient.setInsecure();
+  #endif
+
   // MQTT client
   _mqttConnected = false;
   _nextMqttConnectionAttemptMillis = 0;
